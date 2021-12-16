@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 
-function App() {
+import LoginForm from './LoginForm/LoginForm';
+
+const App: FunctionComponent = () => {
   return (
-    <div className="App">
-      <h2>Hello world!</h2>
-    </div>
+    <>
+      <LoginForm />
+    </>
   );
-}
+};
 
 export default App;
