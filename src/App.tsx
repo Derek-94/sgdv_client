@@ -1,11 +1,11 @@
 import React, { FunctionComponent } from 'react';
 
-import LoginForm from './LoginForm/LoginForm';
+import Router from './router';
 
 const App: FunctionComponent = () => {
   return (
     <>
-      <LoginForm />
+      <Router />
     </>
   );
 };
