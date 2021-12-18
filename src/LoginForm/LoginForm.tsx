@@ -5,9 +5,13 @@ import { Form, Input, Button, Typography } from 'antd';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
+const { Text } = Typography;
+
 const LoginForm: FunctionComponent = () => {
   const [useId, setUserId] = useState<string>('');
   const [pwd, setPwd] = useState<string>('');
+
+  const [loginFail, setLoginFail] = useState<boolean>(false);
 
   const handleSubmit = async () => {
     const res = await axios.post(`/login`, {
@@ -15,6 +19,7 @@ const LoginForm: FunctionComponent = () => {
       password: pwd,
     });
     console.log(res.data);
+    setLoginFail(res.data);
   };
 
   return (
@@ -49,15 +54,16 @@ const LoginForm: FunctionComponent = () => {
         </Form.Item>
       </Form>
       <Link to="/signup">🤔 Not member yet? Signup.</Link>
+      <br />
+      {loginFail ? <Text type="danger">😢 Wrong password! Try again.</Text> : ``}
     </FormWrapper>
   );
 };
 
 export default LoginForm;
 
-export const FormWrapper = styled.section`
+const FormWrapper = styled.section`
   display: flex;
-  height: 100vh;
   flex-direction: column;
   align-items: center;
   justify-content: center;

@@ -1,14 +1,25 @@
 import React, { useState, FunctionComponent } from 'react';
-import axios from 'axios';
+import { LoginTitle } from '../LoginForm/LoginForm';
 
+import styled from 'styled-components';
 import { Form, Input, Button, Select, Typography } from 'antd';
-
-import { FormWrapper, LoginTitle } from '../LoginForm/LoginForm';
 
 const { Option } = Select;
 const { Text } = Typography;
 
-const SignUp: FunctionComponent = () => {
+type SignUpProps = {
+  onHandleSignUp: (
+    userId: string,
+    pwd: string,
+    name: string,
+    gender: string,
+    cb: React.Dispatch<React.SetStateAction<boolean>>
+  ) => void;
+};
+
+const SignUp: FunctionComponent<SignUpProps> = (props) => {
+  const { onHandleSignUp } = props;
+
   const [userId, setUserId] = useState<string>('');
   const [pwd, setPwd] = useState<string>('');
   const [name, setName] = useState<string>('');
@@ -17,20 +28,7 @@ const SignUp: FunctionComponent = () => {
   const [errorId, setErrorId] = useState<boolean>(false);
 
   const handleSubmit = async () => {
-    console.log(userId, pwd, name, gender);
-    const res = await axios.post(`/signup`, {
-      name: name,
-      id: userId,
-      password: pwd,
-      gender: gender,
-    });
-    console.log(res.data);
-    if (res.data) {
-      setErrorId(false);
-      // 성공 시 리다이렉션.
-    } else {
-      setErrorId(true);
-    }
+    onHandleSignUp(userId, pwd, name, gender, setErrorId);
   };
 
   return (
@@ -92,3 +90,11 @@ const SignUp: FunctionComponent = () => {
 };
 
 export default SignUp;
+
+const FormWrapper = styled.section`
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
