@@ -1,25 +1,31 @@
 import React, { useState, FunctionComponent } from 'react';
-import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 import { Form, Input, Button, Typography } from 'antd';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 
 const { Text } = Typography;
 
-const LoginForm: FunctionComponent = () => {
-  const [useId, setUserId] = useState<string>('');
+type LoginFormProps = {
+  onHandleSubmit: (
+    id: string,
+    pwd: string,
+    cb: React.Dispatch<React.SetStateAction<boolean>>
+  ) => void;
+};
+
+const LoginForm: FunctionComponent<LoginFormProps> = (props) => {
+  const { onHandleSubmit } = props;
+
+  const [userId, setUserId] = useState<string>('');
   const [pwd, setPwd] = useState<string>('');
 
+  const [submitState, setSubmitState] = useState<boolean>(false);
   const [loginFail, setLoginFail] = useState<boolean>(false);
 
   const handleSubmit = async () => {
-    const res = await axios.post(`/login`, {
-      id: useId,
-      password: pwd,
-    });
-    console.log(res.data);
-    setLoginFail(res.data);
+    onHandleSubmit(userId, pwd, setLoginFail);
+    setSubmitState(true);
   };
 
   return (
@@ -34,6 +40,7 @@ const LoginForm: FunctionComponent = () => {
           <Input
             type="text"
             name="firstname"
+            autoFocus
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => setUserId(e.target.value)}
           />
         </Form.Item>
@@ -55,7 +62,11 @@ const LoginForm: FunctionComponent = () => {
       </Form>
       <Link to="/signup">🤔 Not member yet? Signup.</Link>
       <br />
-      {loginFail ? <Text type="danger">😢 Wrong password! Try again.</Text> : ``}
+      {submitState && loginFail ? (
+        <Text type="danger">😢 Wrong ID or Password! Try again.</Text>
+      ) : (
+        ``
+      )}
     </FormWrapper>
   );
 };

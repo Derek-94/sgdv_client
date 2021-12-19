@@ -9,17 +9,21 @@ const SignUpContainer = () => {
     pwd: string,
     name: string,
     gender: string,
-    cb: React.Dispatch<React.SetStateAction<boolean>>
+    cbSetError: React.Dispatch<React.SetStateAction<boolean>>,
+    cbModal: React.Dispatch<React.SetStateAction<boolean>>
   ) => {
-    console.log(userId, pwd, name, gender);
     const res = await axios.post(`/signup`, {
       name: name,
       id: userId,
       password: pwd,
       gender: gender,
     });
-
-    cb(res.data ? false : true);
+    if (res.data) {
+      cbSetError(false);
+      cbModal(true);
+    } else {
+      cbSetError(true);
+    }
   };
 
   return <SignUp onHandleSignUp={onHandleSignUp} />;
