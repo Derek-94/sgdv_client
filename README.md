@@ -1,46 +1,33 @@
-# Getting Started with Create React App
+# Smilegate dev camp
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Side project 
 
-## Available Scripts
+### Demonstration video - by Functional.
 
-In the project directory, you can run:
+#### Home 
+- Cannot reach in Product list page.
+- `Login` button on the right top of navigation bar.
+- Modal pops when `Login` button clicked.
 
-### `npm start`
+<p align="center"><img src="https://user-images.githubusercontent.com/52649378/146728978-67f821ae-3aa7-4860-b461-a020f893b1cd.gif"/></p>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+#### Sign up
+- Sign up with basic infos.
+- Speaks when there is duplicated id in DB.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<p align="center"><img src="https://user-images.githubusercontent.com/52649378/146729995-7632c169-6507-4dab-bc7f-c9ed5231488d.gif" /><p>
+  
+#### Login
+- Login with the infos of signup.
+- Error handles when user input wrong id or password.
 
-### `npm test`
+<p align="center"><img src="https://user-images.githubusercontent.com/52649378/146732132-f39611fe-2c60-42df-b6b7-7c7ffda46d66.gif" /><p>  
+  
+### Backend Server
+- [Backend - Github](https://github.com/Derek-94/sgdc_APIserver)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Skill stacks
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+  ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white) ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![StyledComponent](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)
+  
+  <img alt="prettier" src ="https://img.shields.io/badge/prettier-F7B93E.svg?&style=for-the-badge&logo=prettier&logoColor=white"/> <img alt="eslint" src ="https://img.shields.io/badge/eslint-4B32C3.svg?&style=for-the-badge&logo=eslint&logoColor=white"/>
